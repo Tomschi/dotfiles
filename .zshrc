@@ -11,7 +11,7 @@ fi
 source "${ZINIT_HOME}/zinit.zsh"
 
 # Start oh-my-posh
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/default.toml)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/catppuccin-macchiato.toml)"
 
 # Add in zsh plugins
 zinit light zsh-users/zsh-syntax-highlighting
