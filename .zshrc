@@ -23,6 +23,8 @@ zinit light Aloxaf/fzf-tab
 zinit snippet OMZP::git
 zinit snippet OMZP::sudo
 zinit snippet OMZP::command-not-found
+# zinit snippet OMZP::docker
+# zinit snippet OMZP::docker-compose
 
 # Load completions
 autoload -Uz compinit && compinit
@@ -31,14 +33,16 @@ zinit cdreplay -q
 
 # Keybindings
 bindkey -e
-bindkey '^[[2~'  overwrite-mode
-bindkey '^[[3~'  delete-char
-bindkey '^[[H'   beginning-of-line
-bindkey '^[[F'   end-of-line
-bindkey '^[[5~'  beginning-of-buffer-or-history
-bindkey '^[[6~'  end-of-buffer-or-history
-bindkey '^p'     history-search-backward
-bindkey '^n'     history-search-forward
+bindkey '^[[2~'    overwrite-mode
+bindkey '^[[3~'    delete-char
+bindkey '^[[H'     beginning-of-line
+bindkey '^[[F'     end-of-line
+bindkey '^[[5~'    beginning-of-buffer-or-history
+bindkey '^[[6~'    end-of-buffer-or-history
+bindkey '^p'       history-search-backward
+bindkey '^n'       history-search-forward
+bindkey '^[[1;5D'  backward-word
+bindkey '^[[1;5C'  forward-word
 
 # History
 HISTSIZE=5000
@@ -65,6 +69,11 @@ alias ls='ls --color'
 alias la='ls -a --color'
 alias ll='ls -l'
 
+alias vi='nvim'
+
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+export PATH="$HOME/.local/bin:$PATH"
