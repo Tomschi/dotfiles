@@ -1,13 +1,13 @@
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
-version = 3
+version = 4
 final_space = true
 
 [palette]
   black = '#24273a'
   blue = '#8aadf4'
   green = '#a6da95'
-  orange = '#f5a97f'
   mauve = '#c6a0f6'
+  orange = '#f5a97f'
   red = '#ed8796'
   white = '#cad3f5'
   yellow = '#eed49f'
@@ -44,7 +44,7 @@ final_space = true
     type = 'path'
     style = 'powerline'
 
-    [blocks.segments.properties]
+    [blocks.segments.options]
       style = 'folder'
 
   [[blocks.segments]]
@@ -57,8 +57,8 @@ final_space = true
     foreground_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:black{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:white{{ end }}', '{{ if gt .Ahead 0 }}p:white{{ end }}']
     background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:red{{ end }}', '{{ if gt .Ahead 0 }}#49416D{{ end }}', '{{ if gt .Behind 0 }}#7A306C{{ end }}']
 
-    [blocks.segments.properties]
-      branch_max_length = 25
+    [blocks.segments.options]
+      branch_template = '{{ trunc 25 .Branch }}'
       fetch_status = true
       fetch_upstream_icon = true
 
@@ -80,7 +80,7 @@ final_space = true
     style = 'diamond'
     background_templates = ['{{ if gt .Code 0 }}p:red{{ end }}']
 
-    [blocks.segments.properties]
+    [blocks.segments.options]
       always_enabled = true
 
 [[blocks]]
@@ -93,7 +93,7 @@ final_space = true
     type = 'node'
     style = 'plain'
 
-    [blocks.segments.properties]
+    [blocks.segments.options]
       display_mode = 'files'
       fetch_package_manager = false
       home_enabled = false
@@ -105,7 +105,7 @@ final_space = true
     type = 'go'
     style = 'plain'
 
-    [blocks.segments.properties]
+    [blocks.segments.options]
       fetch_version = false
 
   [[blocks.segments]]
@@ -115,7 +115,7 @@ final_space = true
     type = 'python'
     style = 'plain'
 
-    [blocks.segments.properties]
+    [blocks.segments.options]
       display_mode = 'files'
       fetch_version = false
       fetch_virtual_env = false
@@ -138,13 +138,13 @@ final_space = true
   type = 'prompt'
   alignment = 'left'
   newline = true
-  
+
   [[blocks.segments]]
-    type = 'text'
-    style = 'plain'
     template = ' ❭ '
     foreground = 'p:mauve'
     background = 'transparent'
+    type = 'text'
+    style = 'plain'
 
 [[tooltips]]
   leading_diamond = ''
@@ -156,7 +156,7 @@ final_space = true
   style = 'diamond'
   tips = ['aws']
 
-  [tooltips.properties]
+  [tooltips.options]
     display_default = true
 
 [[tooltips]]
@@ -169,5 +169,5 @@ final_space = true
   style = 'diamond'
   tips = ['az']
 
-  [tooltips.properties]
+  [tooltips.options]
     display_default = true
